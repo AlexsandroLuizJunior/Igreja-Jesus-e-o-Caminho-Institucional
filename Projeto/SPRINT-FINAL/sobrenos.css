@@ -1,0 +1,251 @@
+/* Para resetar todas as tags (deixando elas sem nenhuma formatação). */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* ---------------------- FONTE ---------------------- */
+html, body {
+    font-family: "Montserrat", sans-serif; /* Fonte da página. */
+    font-weight: 400; /* Grossura da fonte. */
+}
+
+/* ---------------------- CABEÇALHO ---------------------- */
+header {
+    background-color: #000000; /* Colocando cor de fundo no Cabeçalho. */
+    padding: 20px 4%; /* Alterando a margem interna do cabeçalho. */
+    display: flex; /* Itens um do lado do outro. */
+    justify-content: space-between; /* Espaçamento especial entre os itens. */
+    align-items: center; /* Centralizar os itens na mesma linha. */
+    color: white; /* Cor da fonte. */
+}
+
+.logo {
+    display: inline; /* Colocando os itens um ao lado do outro. */
+}
+
+.logo img {
+    width: 188px; /* Altura da imagem. */
+    margin-right: 10px;
+    margin-left: -35px;
+}
+
+.logotipo {
+    filter: invert(100%) /* Inverte completamente as cores da imagem. */
+    grayscale(100%)  /* Converte a imagem para tons de cinza (elimina as cores originais). */
+    brightness(800%); /* Aumenta o brilho em 800%, o que faz com que os tons de cinza que ficaram invertidos. */
+}
+
+.info {
+    display: flex; /* Itens um do lado do outro.*/
+    gap: 10px; /* Distância entre o ícone e o texto. */
+    margin-right: 40.5px; /* Margem externa a direita. */
+    font-size: 12px; /* Tamanho da fonte. */
+    font-weight: bold; /* Grossura da fonte. */
+}
+
+.info img {
+    width: 29px; /* Largura da imagem. */
+    height: 29px; /* Altura da imagem. */
+}
+
+#tele {
+    font-size: 27px; /* Ajustando o tamanho do ícone presente. */
+}
+
+.whatsapp-button a {
+    padding: 10px 15px; /* Margem interna no botão "Whatsapp". */
+    background-color: white; /* Cor de fundo do botão. */
+    color: #000000; /* Cor da fonte "Whatsapp". */
+    border: 3.5px solid #ffffff; /* Borda do botão. */
+    border-radius: 5px; /* Raio da borda do botão. */
+    text-decoration: none; /* Alterando a decoração da âncora. */
+    transition: 0.3s; /* Transição adicionada de 0.3s para */
+    margin-right: -22px; /* Margem externa a direita. */
+}
+
+.whatsapp-button a:hover {
+    color: white; /* Após o mouse passar pelo ícone, a cor da fonte muda pra branco. */
+    background-color: rgb(137, 137, 137); /* Após o mouse passar pelo ícone, a cor de fundo muda pra amarelo. */
+}
+
+.paginas nav ul {
+    list-style-type: none; /* Tirando a formatação da lista não ordenada. */
+}
+
+.paginas nav ul li {
+    display: inline; /* Colocando os itens da LINHA um ao lado do outro. */
+    margin-right: 25.5px; /* Margem a direita dos itens para dar um espaçamento. */
+    font-size: 13.5px; /* Tamanho da fonte. */
+}
+
+.paginas nav ul li a{
+    font-weight: 600; /* Grosurra da fonte. */
+    text-decoration: none; /* Tirando a formatação das âncoras. */
+    transition: 0.3s; /* Animação de transição. */
+    color: white; /* Cor da fonte. */
+}
+
+.paginas nav ul li a:hover {
+    color: rgb(137, 137, 137); /* Cor da fonte mudando após passar o mouse. */
+}
+
+/* Ícone do hambúrguer no lado direito */
+.menu-hamburguer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Ícone do hambúrguer */
+.hamburguer-icon {
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+    background-color: rgb(137, 137, 137);
+    color: white;
+    display: inline-block;
+}
+
+/* Menu pequeno (inicialmente escondido) */
+.menu-pequeno {
+    display: none;
+    background-color: #333;
+    position: absolute;
+    top: 50px;
+    right: -2px; /* Alinha o menu à direita */
+    width: 150px; /* Define a largura do menu */
+    font-size: 13px;
+}
+
+/* Links do menu pequeno */
+.menu-pequeno ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-pequeno ul li {
+    padding: 15px 0;
+}
+
+.menu-pequeno ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+/* Mostra o menu pequeno quando o ícone é hoverado */
+.menu-hamburguer:hover .menu-pequeno {
+    display: block;
+}
+
+.whatsapp {
+    filter: invert(100%); /* Inverte completamente as cores da imagem. */
+}
+
+/* ---------------------- CONTEÚDO ---------------------- */  
+main {
+    background-color: rgb(0, 0, 0);
+    border-bottom: 12px solid rgb(137, 137, 137); /* Adicionando uma borda acima (Ela será a linha divisória entre o header e o conteúdo). */
+    border-top: 12px solid rgb(137, 137, 137); /* Adicionando uma borda acima (Ela será a linha divisória entre o header e o conteúdo). */
+    padding: 20px 4%;
+}
+
+.sobre {
+    display: flex; 
+}
+
+.imagem img {
+    border: 2px solid rgb(137, 137, 137);
+    width: 650px;
+    height: 600px;
+}
+
+.texto {
+    color: white;
+    text-align: justify;
+    max-width: 540px;
+    margin-left: 50px; 
+}
+
+/* ---------------------- RODAPÉ ---------------------- */  
+footer {
+    background-color: rgb(0, 0, 0); /* Alterando cor de fundo. */
+    padding: 20px 4%; /* Alterando a margin interna do Rodapé. */
+    display: flex; /* Alinhando itens do Rodapé um do lado do outro. */
+    justify-content: space-between; /* Espaçamento especial entre os itens. */
+}
+
+.esquerda {
+    padding: 10px; /* Margem interna nos itens a esquerda do Rodapé. */
+    margin-right: 25.5px; /* Margem externa no item a esquerda. */
+}
+
+.esquerda img {
+    width: 200px; /* Largura da imagem. */
+    height: 200px; /* Altura da imagem. */
+    filter: invert(100%) grayscale(200%) brightness(400%); 
+    /* Inverte completamente as cores da imagem. */
+}
+
+.linha-vertical1 {
+    height: 230px; /* Altura da linha vertical divisória dos itens do Rodapé. */
+    border-right: 2px solid rgb(255, 255, 255); /* Cor da linha vertical divisória dos itens do Rodapé. */
+}
+
+.centro {
+    padding: 10px; /* Margem interna nos itens do centro do Rodapé. */
+    max-width: 550px; /* Estabelecendo uma largura máxima para o que tiver dentro da classe. */
+}
+
+.centro h2 {
+    color: white; /* Cor da fonte. */
+}
+
+.centro p {
+    color: white; /* Cor da fonte. */
+}
+
+.centro img {
+    width: 19px; /* Largura da imagem. */
+    height: 19px; /* Altura da imagem. */
+    text-align: justify; /* Alinhamento do texto. */
+    filter: invert(100%);
+}
+
+.redes-sociais {
+    transition: 0.3s;
+}
+
+.redes-sociais img {
+    margin-top: 6px; /* Margem externa acima. */
+    width: 26px; /* Largura das imagens. */
+    height: 26px; /* Altura das imagens. */
+    filter: invert(100%);
+}
+
+.redes-sociais a {
+    text-decoration: none; /* Alterando a decoração dos textos com link. Deixando eles sem alinhamento embaixo. */
+}
+
+.linha-vertical2 {
+    height: 230px; /* Altura da linha vertical divisória dos itens do Rodapé. */
+    border-right: 2px solid rgb(255, 255, 255); /* Cor da linha vertical divisória dos itens do Rodapé. */
+}
+
+.direita {
+    padding: 10px; /* Margen interna nos itens a direita do Rodapé. */
+    margin-right: 60px; /* Margme externa a para dar espaçamento. */
+}
+
+.direita h2 {
+    color: white; /* Cor da fonte. */
+}
+
+.direita iframe {
+    height: 175px; /* Altura do iframe(mapa). */
+    width: 175px; /* Largura do iframe(mapa). */
+}

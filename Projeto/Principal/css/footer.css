@@ -1,0 +1,59 @@
+/* ---------------------- RODAPÉ ---------------------- */  
+footer {
+    font-family: 'Montserrat';
+    background-color: white; /* Alterando cor de fundo. */
+    padding: 20px 4%; /* Alterando a margin interna do Rodapé. */
+    display: flex; /* Alinhando itens do Rodapé um do lado do outro. */
+    justify-content: space-between; /* Espaçamento especial entre os itens. */
+}
+
+.esquerda {
+    padding: 10px; /* Margem interna nos itens a esquerda do Rodapé. */
+    margin-right: 25.5px; /* Margem externa no item a esquerda. */
+}
+
+.esquerda img {
+    width: 200px; /* Largura da imagem. */
+    height: 200px; /* Altura da imagem. */
+}
+
+.linha-vertical1 {
+    height: 230px; /* Altura da linha vertical divisória dos itens do Rodapé. */
+    border-right: 2px solid black; /* Cor da linha vertical divisória dos itens do Rodapé. */
+}
+
+.centro {
+    padding: 10px; /* Margem interna nos itens do centro do Rodapé. */
+    max-width: 550px; /* Estabelecendo uma largura máxima para o que tiver dentro da classe. */
+}
+
+.centro img {
+    width: 19px; /* Largura da imagem. */
+    height: 19px; /* Altura da imagem. */
+    text-align: justify; /* Alinhamento do texto. */
+}
+
+.redes-sociais img {
+    margin-top: 6px; /* Margem externa acima. */
+    width: 26px; /* Largura das imagens. */
+    height: 26px; /* Altura das imagens. */
+}
+
+.redes-sociais a {
+    text-decoration: none; /* Alterando a decoração dos textos com link. Deixando eles sem alinhamento embaixo. */
+}
+
+.linha-vertical2 {
+    height: 230px; /* Altura da linha vertical divisória dos itens do Rodapé. */
+    border-right: 2px solid black; /* Cor da linha vertical divisória dos itens do Rodapé. */
+}
+
+.direita {
+    padding: 10px; /* Margen interna nos itens a direita do Rodapé. */
+    margin-right: 60px; /* Margem externa para dar espaçamento. */
+}
+
+.direita iframe {
+    height: 175px; /* Altura do iframe(mapa). */
+    width: 175px; /* Largura do iframe(mapa). */
+}   
