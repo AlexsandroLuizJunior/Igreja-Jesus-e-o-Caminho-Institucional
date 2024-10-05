@@ -1,1 +1,1 @@
-# Igreja-Jesus-o-Caminho-Institucional
+# Igreja-Jesus-e-o-Caminho-Institucional
