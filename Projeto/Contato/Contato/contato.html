@@ -86,16 +86,18 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
         </div>
         <div class="col-lg-8 wow fadeInLeft delay-06s">
           <div class="form">
-            <input class="input-text" type="text" name="" value="Seu Nome *"
-              onFocus="if(this.value==this.defaultValue)this.value='';"
-              onBlur="if(this.value=='')this.value=this.defaultValue;">
-            <input class="input-text" type="text" name="" value="Seu E-mail *"
-              onFocus="if(this.value==this.defaultValue)this.value='';"
-              onBlur="if(this.value=='')this.value=this.defaultValue;">
-            <textarea class="input-text text-area" cols="0" rows="0"
-              onFocus="if(this.value==this.defaultValue)this.value='';"
-              onBlur="if(this.value=='')this.value=this.defaultValue;">Sua Mensagem *</textarea>
-            <input class="input-btn" type="submit" value="Enviar Mensagem">
+            <form action="grava.jsp" method="GET">
+              <input class="input-text" type="text" name="txtnome" value="Seu Nome *"
+                onFocus="if(this.value==this.defaultValue)this.value='';"
+                onBlur="if(this.value=='')this.value=this.defaultValue;">
+              <input class="input-text" type="text" name="txtcontato" value="Seu E-mail *"
+                onFocus="if(this.value==this.defaultValue)this.value='';"
+                onBlur="if(this.value=='')this.value=this.defaultValue;">
+              <textarea class="input-text text-area" name="txtmensagem" cols="0" rows="0"
+                onFocus="if(this.value==this.defaultValue)this.value='';"
+                onBlur="if(this.value=='')this.value=this.defaultValue;">Sua Mensagem *</textarea>
+              <input class="input-btn" type="submit" value="Enviar Mensagem">
+            </form>
           </div>
         </div>
       </div>
