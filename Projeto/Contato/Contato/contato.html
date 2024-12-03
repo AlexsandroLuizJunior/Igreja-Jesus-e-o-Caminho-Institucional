@@ -168,52 +168,44 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
 
   <script>
     document.getElementById('formulario').addEventListener('submit', function(event) {
-      event.preventDefault(); // Impede o envio do formulário até a validação
+      event.preventDefault(); 
   
-      // Limpar os erros anteriores
       const campos = document.querySelectorAll('.input-text, .text-area');
       campos.forEach(campo => {
-        campo.classList.remove('error'); // Remove a classe de erro de todos os campos
-        campo.setAttribute('placeholder', ''); // Limpa os placeholders
-        campo.style.backgroundColor = ''; // Restaura a cor de fundo normal
+        campo.classList.remove('error'); 
+        campo.setAttribute('placeholder', ''); 
+        campo.style.backgroundColor = ''; 
       });
   
       let valido = true;
   
-      // Função para verificar campos vazios
       function verificarCampo(campo, nomeCampo) {
         if (!campo.value.trim() || campo.value === campo.defaultValue) {
           valido = false;
-          campo.classList.add('error'); // Marca o campo com erro
+          campo.classList.add('error'); 
   
-          // Alterar a cor de fundo do campo para destacar o erro
-          campo.style.backgroundColor = '#f8d7da'; // Cor de fundo vermelha para destacar o erro
+          campo.style.backgroundColor = '#f8d7da'; 
   
           // Exibe a mensagem de erro dentro do campo como placeholder
-          campo.setAttribute('placeholder', nomeCampo + " não pode ficar vazio!"); // Mensagem de erro no placeholder
+          campo.setAttribute('placeholder', nomeCampo + " não pode ficar vazio!"); 
         }
       }
   
-      // Verificação de cada campo
       verificarCampo(document.getElementById('txtnome'), "Nome");
       verificarCampo(document.getElementById('txtcontato'), "E-mail");
       verificarCampo(document.getElementById('txtmensagem'), "Mensagem");
   
-      // Se tudo estiver válido, o formulário pode ser enviado
       if (valido) {
-        // Aqui seria o envio real, descomente a linha abaixo para isso:
-        // event.target.submit();
         alert('Formulário enviado com sucesso!');
       }
     });
   
-    // Quando o usuário clicar no campo, remover a mensagem de erro do placeholder
     document.querySelectorAll('.input-text, .text-area').forEach(campo => {
       campo.addEventListener('focus', function() {
         if (campo.value === campo.defaultValue) {
-          campo.value = ''; // Limpa o valor do campo
+          campo.value = ''; 
         }
-        campo.style.backgroundColor = ''; // Restaura a cor do fundo para normal
+        campo.style.backgroundColor = ''; 
       });
     });
   </script>
