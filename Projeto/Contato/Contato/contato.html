@@ -86,16 +86,23 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
         </div>
         <div class="col-lg-8 wow fadeInLeft delay-06s">
           <div class="form">
-            <form action="grava.jsp" method="GET">
-              <input class="input-text" type="text" name="txtnome" value="Seu Nome *"
+            <form id="formulario" action="grava.jsp" method="GET">
+              <!-- Campo Nome -->
+              <input class="input-text" type="text" name="txtnome" id="txtnome" value="Seu Nome *"
                 onFocus="if(this.value==this.defaultValue)this.value='';"
                 onBlur="if(this.value=='')this.value=this.defaultValue;">
-              <input class="input-text" type="text" name="txtcontato" value="Seu E-mail *"
+        
+              <!-- Campo E-mail -->
+              <input class="input-text" type="text" name="txtcontato" id="txtcontato" value="Seu E-mail *"
                 onFocus="if(this.value==this.defaultValue)this.value='';"
                 onBlur="if(this.value=='')this.value=this.defaultValue;">
-              <textarea class="input-text text-area" name="txtmensagem" cols="0" rows="0"
+        
+              <!-- Campo Mensagem -->
+              <textarea class="input-text text-area" name="txtmensagem" id="txtmensagem"
                 onFocus="if(this.value==this.defaultValue)this.value='';"
                 onBlur="if(this.value=='')this.value=this.defaultValue;">Sua Mensagem *</textarea>
+        
+              <!-- Botão Enviar -->
               <input class="input-btn" type="submit" value="Enviar Mensagem">
             </form>
           </div>
@@ -137,8 +144,6 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
     </div>
   </section>
 
-
-
   <!--Footer-->
   <footer class="footer_wrapper" id="contact">
     <div class="container">
@@ -160,6 +165,58 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
   <script src="js/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
   <script type="text/javascript" src="js/wow.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
+
+  <script>
+    document.getElementById('formulario').addEventListener('submit', function(event) {
+      event.preventDefault(); // Impede o envio do formulário até a validação
+  
+      // Limpar os erros anteriores
+      const campos = document.querySelectorAll('.input-text, .text-area');
+      campos.forEach(campo => {
+        campo.classList.remove('error'); // Remove a classe de erro de todos os campos
+        campo.setAttribute('placeholder', ''); // Limpa os placeholders
+        campo.style.backgroundColor = ''; // Restaura a cor de fundo normal
+      });
+  
+      let valido = true;
+  
+      // Função para verificar campos vazios
+      function verificarCampo(campo, nomeCampo) {
+        if (!campo.value.trim() || campo.value === campo.defaultValue) {
+          valido = false;
+          campo.classList.add('error'); // Marca o campo com erro
+  
+          // Alterar a cor de fundo do campo para destacar o erro
+          campo.style.backgroundColor = '#f8d7da'; // Cor de fundo vermelha para destacar o erro
+  
+          // Exibe a mensagem de erro dentro do campo como placeholder
+          campo.setAttribute('placeholder', nomeCampo + " não pode ficar vazio!"); // Mensagem de erro no placeholder
+        }
+      }
+  
+      // Verificação de cada campo
+      verificarCampo(document.getElementById('txtnome'), "Nome");
+      verificarCampo(document.getElementById('txtcontato'), "E-mail");
+      verificarCampo(document.getElementById('txtmensagem'), "Mensagem");
+  
+      // Se tudo estiver válido, o formulário pode ser enviado
+      if (valido) {
+        // Aqui seria o envio real, descomente a linha abaixo para isso:
+        // event.target.submit();
+        alert('Formulário enviado com sucesso!');
+      }
+    });
+  
+    // Quando o usuário clicar no campo, remover a mensagem de erro do placeholder
+    document.querySelectorAll('.input-text, .text-area').forEach(campo => {
+      campo.addEventListener('focus', function() {
+        if (campo.value === campo.defaultValue) {
+          campo.value = ''; // Limpa o valor do campo
+        }
+        campo.style.backgroundColor = ''; // Restaura a cor do fundo para normal
+      });
+    });
+  </script>
 
 </body>
 
