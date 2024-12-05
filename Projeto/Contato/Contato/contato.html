@@ -86,7 +86,7 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
         </div>
         <div class="col-lg-8 wow fadeInLeft delay-06s">
           <div class="form">
-            <form id="formulario" action="grava.jsp" method="GET">
+            <form id="formulario" action="grava.jsp" method="post" accept-charset="UTF-8">
               <!-- Campo Nome -->
               <input class="input-text" type="text" name="txtnome" id="txtnome" value="Seu Nome *"
                 onFocus="if(this.value==this.defaultValue)this.value='';"
@@ -168,47 +168,43 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
 
   <script>
     document.getElementById('formulario').addEventListener('submit', function(event) {
-      event.preventDefault(); 
+      // Impede o envio se houver erro de validação
+      event.preventDefault();
   
       const campos = document.querySelectorAll('.input-text, .text-area');
-      campos.forEach(campo => {
-        campo.classList.remove('error'); 
-        campo.setAttribute('placeholder', ''); 
-        campo.style.backgroundColor = ''; 
-      });
-  
       let valido = true;
   
+      // Limpa mensagens de erro e estilos anteriores
+      campos.forEach(campo => {
+        campo.classList.remove('error');
+        campo.setAttribute('placeholder', '');
+        campo.style.backgroundColor = '';
+        campo.style.color = ''; // Reseta a cor do texto
+      });
+  
+      // Função para verificar cada campo
       function verificarCampo(campo, nomeCampo) {
         if (!campo.value.trim() || campo.value === campo.defaultValue) {
           valido = false;
-          campo.classList.add('error'); 
-  
-          campo.style.backgroundColor = '#f8d7da'; 
-  
-          // Exibe a mensagem de erro dentro do campo como placeholder
-          campo.setAttribute('placeholder', nomeCampo + " não pode ficar vazio!"); 
+          campo.classList.add('error');
+          campo.style.backgroundColor = '#f8d7da'; // Fundo vermelho
+          campo.style.color = '#000'; // Cor do texto preta
+          campo.setAttribute('placeholder', nomeCampo + " não pode ficar vazio!");
         }
       }
   
+      // Verifica os três campos
       verificarCampo(document.getElementById('txtnome'), "Nome");
       verificarCampo(document.getElementById('txtcontato'), "E-mail");
       verificarCampo(document.getElementById('txtmensagem'), "Mensagem");
   
+      // Se tudo estiver validado corretamente, envia o formulário
       if (valido) {
-        alert('Formulário enviado com sucesso!');
+        this.submit(); // Envia o formulário para o JSP
       }
     });
-  
-    document.querySelectorAll('.input-text, .text-area').forEach(campo => {
-      campo.addEventListener('focus', function() {
-        if (campo.value === campo.defaultValue) {
-          campo.value = ''; 
-        }
-        campo.style.backgroundColor = ''; 
-      });
-    });
   </script>
+  
 
 </body>
 
