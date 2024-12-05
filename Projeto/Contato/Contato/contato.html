@@ -86,16 +86,25 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
         </div>
         <div class="col-lg-8 wow fadeInLeft delay-06s">
           <div class="form">
-            <input class="input-text" type="text" name="" value="Seu Nome *"
-              onFocus="if(this.value==this.defaultValue)this.value='';"
-              onBlur="if(this.value=='')this.value=this.defaultValue;">
-            <input class="input-text" type="text" name="" value="Seu E-mail *"
-              onFocus="if(this.value==this.defaultValue)this.value='';"
-              onBlur="if(this.value=='')this.value=this.defaultValue;">
-            <textarea class="input-text text-area" cols="0" rows="0"
-              onFocus="if(this.value==this.defaultValue)this.value='';"
-              onBlur="if(this.value=='')this.value=this.defaultValue;">Sua Mensagem *</textarea>
-            <input class="input-btn" type="submit" value="Enviar Mensagem">
+            <form id="formulario" action="grava.jsp" method="post" accept-charset="UTF-8">
+              <!-- Campo Nome -->
+              <input class="input-text" type="text" name="txtnome" id="txtnome" value="Seu Nome *"
+                onFocus="if(this.value==this.defaultValue)this.value='';"
+                onBlur="if(this.value=='')this.value=this.defaultValue;">
+        
+              <!-- Campo E-mail -->
+              <input class="input-text" type="text" name="txtcontato" id="txtcontato" value="Seu E-mail *"
+                onFocus="if(this.value==this.defaultValue)this.value='';"
+                onBlur="if(this.value=='')this.value=this.defaultValue;">
+        
+              <!-- Campo Mensagem -->
+              <textarea class="input-text text-area" name="txtmensagem" id="txtmensagem"
+                onFocus="if(this.value==this.defaultValue)this.value='';"
+                onBlur="if(this.value=='')this.value=this.defaultValue;">Sua Mensagem *</textarea>
+        
+              <!-- Botão Enviar -->
+              <input class="input-btn" type="submit" value="Enviar Mensagem">
+            </form>
           </div>
         </div>
       </div>
@@ -135,8 +144,6 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
     </div>
   </section>
 
-
-
   <!--Footer-->
   <footer class="footer_wrapper" id="contact">
     <div class="container">
@@ -158,6 +165,46 @@ Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/license
   <script src="js/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
   <script type="text/javascript" src="js/wow.js"></script>
   <script type="text/javascript" src="js/custom.js"></script>
+
+  <script>
+    document.getElementById('formulario').addEventListener('submit', function(event) {
+      // Impede o envio se houver erro de validação
+      event.preventDefault();
+  
+      const campos = document.querySelectorAll('.input-text, .text-area');
+      let valido = true;
+  
+      // Limpa mensagens de erro e estilos anteriores
+      campos.forEach(campo => {
+        campo.classList.remove('error');
+        campo.setAttribute('placeholder', '');
+        campo.style.backgroundColor = '';
+        campo.style.color = ''; // Reseta a cor do texto
+      });
+  
+      // Função para verificar cada campo
+      function verificarCampo(campo, nomeCampo) {
+        if (!campo.value.trim() || campo.value === campo.defaultValue) {
+          valido = false;
+          campo.classList.add('error');
+          campo.style.backgroundColor = '#f8d7da'; // Fundo vermelho
+          campo.style.color = '#000'; // Cor do texto preta
+          campo.setAttribute('placeholder', nomeCampo + " não pode ficar vazio!");
+        }
+      }
+  
+      // Verifica os três campos
+      verificarCampo(document.getElementById('txtnome'), "Nome");
+      verificarCampo(document.getElementById('txtcontato'), "E-mail");
+      verificarCampo(document.getElementById('txtmensagem'), "Mensagem");
+  
+      // Se tudo estiver validado corretamente, envia o formulário
+      if (valido) {
+        this.submit(); // Envia o formulário para o JSP
+      }
+    });
+  </script>
+  
 
 </body>
 
