@@ -1,16 +1,8 @@
-// No MySQL, deve-se criar um database com o nome "formulario". 
-// Criar uma tabela, dessa maneira:
-// create table pessoas (
-//    codigo int PRIMARY KEY AUTO_INCREMENT,
-//    nome   varchar(60) ,
-//    contato  varchar(60) ,
-//    mensagem  varchar(100)
-// );
-
-// Código JSP
 <%@ page language="java" import="java.sql.*" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%
+    request.setCharacterEncoding("UTF-8");
     // Cria as variáveis e armazena as informações digitadas pelo usuário
     String vnome = request.getParameter("txtnome");
     String vcontato = request.getParameter("txtcontato");
@@ -24,7 +16,7 @@
     String senha = "";
 
     // Driver JDBC
-    String driver = "com.mysql.cj.jdbc.Driver";
+    String driver = "com.mysql.jdbc.Driver" ;
 
     try {
         // Carrega o driver na memória
@@ -34,7 +26,7 @@
         Connection conexao = DriverManager.getConnection(endereco, usuario, senha);
 
         // Variável para o comando Insert do SQL
-        String sql = "INSERT INTO mensagens (nome, contato, mensagem) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO pessoas (nome, contato, mensagem) VALUES (?, ?, ?)";
 
         // Cria a variável Statement para executar o SQL
         PreparedStatement stm = conexao.prepareStatement(sql);
@@ -50,5 +42,8 @@
         out.print("<h3>Informações enviadas com sucesso!</h3>");
         out.print("<br><br>");
         out.print("<a href='contato.html'>Voltar para a página inicial</a>");
+    } 
+    finally{
+
     }
 %>
